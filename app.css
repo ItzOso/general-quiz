@@ -1,0 +1,60 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: rgb(39, 39, 39);
+}
+
+.container {
+    width: 800px;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+}
+
+#options > * {
+    margin: 10px 0;
+    width: 800px;
+}
+
+#question {
+    margin-bottom: 50px;
+}
+
+#question-score {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+#end-modal {
+    background: rgb(53, 53, 53);
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transform: scale(1.25);
+    border: 5px solid rgb(36, 36, 36);
+    display: none;
+}
+
+#end-modal > * {
+    margin-top: 15px;
+}
+
+#end-modal h4 {
+    margin-top: 0;
+}
+
+#end-modal button {
+    transition: all 500ms ease;
+}
+
+#end-modal button:hover {
+    transform: scale(1.1);
+}
+

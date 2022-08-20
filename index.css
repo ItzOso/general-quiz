@@ -1,0 +1,32 @@
+body {
+    height: 100vh;
+    background: rgb(39, 39, 39);
+    color: white;
+}
+
+.vertical-center {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    width: 500px;
+}
+
+.container > * {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+#title {
+    margin-bottom: 25px;
+}
+
+button {
+    transition: all 500ms ease !important;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
