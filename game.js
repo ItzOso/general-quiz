@@ -9,14 +9,13 @@ const scoreDisplay = document.querySelector("#score");
 let numOfQuestions = localStorage.getItem("numOfQuestions");
 localStorage.removeItem("numOfQuestions");
 if (!numOfQuestions) {
-    window.location.href = "../";
+    window.history.back();
 }
 
 let score;
 let questions;
 let currentQuestion;
 let currentQuestionOptions;
-let availableQuestions;
 let questionCounter;
 let acceptingAnswers = false;
 let SCORE_POINTS = 100;
@@ -32,7 +31,6 @@ fetch(`${url}?limit${numOfQuestions}&difficulty=easy`, { method: "GET" })
 function startGame() {
     score = 0;
     questionCounter = 0;
-    availableQuestions = [...questions];
 
     getNextQuestion();
     updateDisplay();
@@ -41,7 +39,7 @@ function startGame() {
 function getNextQuestion() {
     // if (questionCounter + 1 > numOfQuestions) return;
     updateDisplay();
-    currentQuestion = availableQuestions[questionCounter];
+    currentQuestion = questions[questionCounter];
     // this gets all the questions options in an array and shuffles them to be in random order
     currentQuestionOptions = [currentQuestion.correctAnswer, ...currentQuestion.incorrectAnswers].sort(function () {
         return Math.random() - 0.5;
@@ -108,6 +106,6 @@ function openEndModal() {
     endModal.style.display = "block";
     modalScore.innerText = `Final Score: ${score}`;
     modalButton.addEventListener("click", () => {
-        window.location.href = "../";
+        window.history.back();
     });
 }
