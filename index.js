@@ -9,5 +9,10 @@ localStorage.setItem("numOfQuestions", range.value);
 
 range.addEventListener("input", () => {
     number.innerText = range.value;
-    localStorage.setItem("numOfQuestions", range.value);
 });
+
+const start = document.querySelector("#start")
+
+start.addEventListener("click", () => {
+    localStorage.setItem("numOfQuestions", range.value);
+}
