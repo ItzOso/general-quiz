@@ -18,7 +18,7 @@ body {
 
 #options > * {
     margin: 10px 0;
-    width: 800px;
+    /* width: 800px; */
 }
 
 #question {
