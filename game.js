@@ -9,15 +9,14 @@ const scoreDisplay = document.querySelector("#score");
 let numOfQuestions = localStorage.getItem("numOfQuestions");
 localStorage.removeItem("numOfQuestions");
 if (!numOfQuestions) {
-    window.location.href = "../";
+    window.location.href = "index.html";
 }
 
-let score;
-let questions;
-let currentQuestion;
-let currentQuestionOptions;
-let availableQuestions;
-let questionCounter;
+let score; //
+let questions; //
+let currentQuestion; //
+let currentQuestionOptions; //
+let questionCounter; //
 let acceptingAnswers = false;
 let SCORE_POINTS = 100;
 
@@ -32,16 +31,14 @@ fetch(`${url}?limit${numOfQuestions}&difficulty=easy`, { method: "GET" })
 function startGame() {
     score = 0;
     questionCounter = 0;
-    availableQuestions = [...questions];
 
     getNextQuestion();
     updateDisplay();
 }
 
 function getNextQuestion() {
-    // if (questionCounter + 1 > numOfQuestions) return;
     updateDisplay();
-    currentQuestion = availableQuestions[questionCounter];
+    currentQuestion = questions[questionCounter];
     // this gets all the questions options in an array and shuffles them to be in random order
     currentQuestionOptions = [currentQuestion.correctAnswer, ...currentQuestion.incorrectAnswers].sort(function () {
         return Math.random() - 0.5;
@@ -71,7 +68,6 @@ function getNextQuestion() {
                     checkEnd();
                 }, 1500);
             } else {
-                updateDisplay();
                 selectedAnswer.classList.replace("btn-primary", "btn-danger");
                 setTimeout(() => {
                     questionCounter++;
@@ -101,13 +97,9 @@ function checkEnd() {
 const endModal = document.querySelector("#end-modal");
 const modalScore = document.querySelector("#modal-score");
 const container = document.querySelector(".container");
-const modalButton = document.querySelector("#modal-button");
 
 function openEndModal() {
     container.style.display = "none";
     endModal.style.display = "block";
     modalScore.innerText = `Final Score: ${score}`;
-    modalButton.addEventListener("click", () => {
-        window.location.href = "../";
-    });
 }
