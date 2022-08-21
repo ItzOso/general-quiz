@@ -12,11 +12,11 @@ if (!numOfQuestions) {
     window.location.href = "index.html";
 }
 
-let score; 
-let questions; 
-let currentQuestion; 
-let currentQuestionOptions; 
-let questionCounter; 
+let score;
+let questions;
+let currentQuestion;
+let currentQuestionOptions;
+let questionCounter;
 let acceptingAnswers = false;
 let SCORE_POINTS = 100;
 
@@ -37,6 +37,7 @@ function startGame() {
 }
 
 function getNextQuestion() {
+    updateDisplay()
     currentQuestion = questions[questionCounter];
     // this gets all the questions options in an array and shuffles them to be in random order
     currentQuestionOptions = [currentQuestion.correctAnswer, ...currentQuestion.incorrectAnswers].sort(function () {
