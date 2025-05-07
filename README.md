@@ -2,7 +2,7 @@
 
 GeneralQuiz is a lightweight, browser-based trivia game that lets users choose how many questions they'd like to answer and then puts their knowledge to the test using real questions from an external trivia API.
 
-🔗 Live App [https://itzoso.github.io/quiz-app/]
+🔗 Live App [https://itzoso.github.io/general-quiz/]
 
 ---
 
